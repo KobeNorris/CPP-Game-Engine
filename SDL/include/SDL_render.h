@@ -161,11 +161,11 @@ extern DECLSPEC int SDLCALL SDL_GetRenderDriverInfo(int index,
 /**
  *  \brief Create a window and default renderer
  *
- *  \param width    The width of the window
- *  \param height   The height of the window
- *  \param window_flags The flags used to create the window
- *  \param window   A pointer filled with the window, or NULL on error
- *  \param renderer A pointer filled with the renderer, or NULL on error
+ *  \param width		The width of the window
+ *  \param height		The height of the window
+ *  \param window_flags	The flags used to create the window
+ *  \param window		A pointer filled with the window, or NULL on error
+ *  \param renderer		A pointer filled with the renderer, or NULL on error
  *
  *  \return 0 on success, or -1 on error
  */
@@ -177,7 +177,7 @@ extern DECLSPEC int SDLCALL SDL_CreateWindowAndRenderer(
 /**
  *  \brief Create a 2D rendering context for a window.
  *
- *  \param window The window where rendering is displayed.
+ *  \param window	The window where rendering is displayed.
  *  \param index    The index of the rendering driver to initialize, or -1 to
  *                  initialize the first one supporting the requested flags.
  *  \param flags    ::SDL_RendererFlags.
@@ -223,11 +223,11 @@ extern DECLSPEC int SDLCALL SDL_GetRendererOutputSize(SDL_Renderer * renderer,
 /**
  *  \brief Create a texture for a rendering context.
  *
- *  \param renderer The renderer.
- *  \param format The format of the texture.
- *  \param access One of the enumerated values in ::SDL_TextureAccess.
- *  \param w      The width of the texture in pixels.
- *  \param h      The height of the texture in pixels.
+ *  \param renderer	The renderer.
+ *  \param format	The format of the texture.
+ *  \param access	One of the enumerated values in ::SDL_TextureAccess.
+ *  \param w		The width of the texture in pixels.
+ *  \param h		The height of the texture in pixels.
  *
  *  \return The created texture is returned, or NULL if no rendering context was
  *          active,  the format was unsupported, or the width or height were out

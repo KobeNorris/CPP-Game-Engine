@@ -94,16 +94,33 @@ If I put it on the graphics card then then it would be harder for you to work th
 */
 void BaseEngine::virtCreateWindows(const char* szCaption)
 {
-	// This makes the surfaces work with software rendering, so it is still a bitmapped display
-	// WARNING: This is definitely not the fastest performance way to do this by any means, but it means that the bitmapped display will be more of a pointer/C++ example rather than being hidden.
-	m_pSDL2Window = SDL_CreateWindow(szCaption,
-		10, 40, /* If you hardcode these, allow room for the window border and title bar */
-				//SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, // Use this to let it position the window for you.
-		m_iWindowWidth, m_iWindowHeight,
-		0/*SDL_WINDOW_FULLSCREEN | SDL_WINDOW_OPENGL*/); // Admittedly making it full screen is something some people may want to do, but not for this coursework please.
-	m_pSDL2Renderer = SDL_CreateRenderer(m_pSDL2Window, -1, 0);
-	// Don't change the format of the pixels - ARGB (8bits each) is assumed in many functions to manually alter the pixels, to demonstrate C++.
-	m_pSDL2Texture = SDL_CreateTexture(m_pSDL2Renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, m_iWindowWidth, m_iWindowHeight);
+	// This makes the surfaces work with software rendering, 
+	// so it is still a bitmapped display
+	m_pSDL2Window = SDL_CreateWindow(
+		szCaption,				// Title
+		SDL_WINDOWPOS_CENTERED, // X position
+		SDL_WINDOWPOS_CENTERED, // Y position
+		m_iWindowWidth,			// Width
+		m_iWindowHeight,		// Height
+		0						// SDL_WINDOW_FULLSCREEN | SDL_WINDOW_OPENGL
+	); 
+
+	m_pSDL2Renderer = SDL_CreateRenderer(
+		m_pSDL2Window,			// The window where rendering is displayed
+		-1,						// Index of the rendering, -1 means first to go
+		0						// ::SDL_RendererFlags
+	);
+
+	// Don't change the format of the pixels - 
+	// ARGB (8bits each) is assumed in many functions 
+	// to manually alter the pixels, to demonstrate C++.
+	m_pSDL2Texture = SDL_CreateTexture(
+		m_pSDL2Renderer,				// The renderer
+		SDL_PIXELFORMAT_ARGB8888,		// The format of the texture
+		SDL_TEXTUREACCESS_STREAMING,	// One of the enumerated values
+		m_iWindowWidth,					// The width of the texture in pixels
+		m_iWindowHeight					// The height of the texture in pixels
+	);
 }
 
 
